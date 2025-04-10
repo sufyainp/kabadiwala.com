@@ -22,8 +22,8 @@ const Login = () => {
       <div className="w-full max-w-xl bg-white shadow-md rounded-lg overflow-hidden flex">
         {/* Left Side Image */}
         <div
-          className="w-1/2 hidden md:block bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://www.pixelstalk.net/wp-content/uploads/images2/Free-Download-Green-Leaves-Wallpapers.jpg)' }}
+          className="w-1/2 hidden md:block bg-cover bg-center "
+          style={{ backgroundImage: 'url(./public/login.png)',backgroundSize: 'contain',backgroundRepeat: 'no-repeat', }}
         ></div>
 
         {/* Right Side Form */}
