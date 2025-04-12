@@ -12,6 +12,9 @@ import Shoping from "./shop/Shoping";
 import { Cart } from "./shop/Cart";
 import Productpage from "./shop/Productpage";
 import OrderTrackingPage from "./components/orders";
+import Checkout from "./components/Checkout";
+import { motion } from "framer-motion";
+
 
 function App() {
   return (
@@ -30,6 +33,7 @@ function App() {
               <Route path="/shop" element={<Shoping/>} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/orders" element={<OrderTrackingPage />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Route>
           </Routes>
         </ShopContextProvider>

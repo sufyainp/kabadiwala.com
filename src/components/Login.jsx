@@ -23,7 +23,7 @@ const Login = () => {
         {/* Left Side Image */}
         <div
           className="w-1/2 hidden md:block bg-cover bg-center "
-          style={{ backgroundImage: 'url(./public/login.png)',backgroundSize: 'contain',backgroundRepeat: 'no-repeat', }}
+          style={{ backgroundImage: 'url(/login.png)',backgroundSize: 'contain',backgroundRepeat: 'no-repeat', }}
         ></div>
 
         {/* Right Side Form */}

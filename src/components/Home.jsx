@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
@@ -19,10 +20,15 @@ const Home = () => {
 
 
 
-
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <h1 className="mb-6 text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-emerald-600 to-green-800 bg-clip-text text-transparent">
           Welcome to Kabadiwala.com
         </h1>
+        </motion.div>
         <p
           className="text-lg md:text-2xl text-gray-800 p-4 rounded-lg shadow max-w-2xl mb-4"
           style={{ backgroundColor: '#d7ffde' }}
@@ -48,6 +54,12 @@ const Home = () => {
         <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto gap-8">
           {/* Text Content */}
           <div className="text-center md:text-left md:w-1/2">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-center md:text-left md:w-1/2"
+          >
             <h2 className="text-2xl md:text-4xl font-bold text-green-800 mb-4">
               Why Choose Kabadiwala.com?
             </h2>
@@ -57,15 +69,23 @@ const Home = () => {
             <p className="text-gray-600">
               From home decluttering to industrial waste management, we make recycling easier and more rewarding.
             </p>
+            </motion.div>
           </div>
-
+          
           {/* Image */}
           <div className="md:w-1/2 flex justify-center">
+          <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="md:w-1/2 flex justify-center"
+        >
             <img
-              src="./public/whyus.png"
+              src="/whyus.png"
               alt="Why Choose Us"
               className="w-full max-w-sm rounded-lg shadow-lg"
             />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -90,17 +110,73 @@ const Home = () => {
               desc: "They’ll schedule a pickup at your convenience.",
             },
           ].map((step, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              // viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
               className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300"
             >
               <h3 className="text-xl font-semibold text-green-700 mb-2">{step.title}</h3>
               <p className="text-gray-600">{step.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
+      {/* Stats*/}
+      <section className="bg-green-100 py-16 px-6 text-center">
+      <h2 className="text-3xl font-bold text-green-800 mb-10">Our Impact</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        {[
+          { label: "Scrap Items Listed", value: "25K+" },
+          { label: "Happy Customers", value: "10K+" },
+          { label: "KG Waste Recycled", value: "120K+" },
+          { label: "Verified Collectors", value: "500+" },
+        ].map((stat, i) => (
+          <div key={i} className="text-green-800">
+            <p className="text-4xl font-bold">{stat.value}</p>
+            <p className="text-gray-700 mt-2">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+      {/* Testimonials */}
+      <section className="bg-white py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold text-green-800 mb-10">What Our Users Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            {
+              name: "Ravi K.",
+              feedback: "Super easy process, got rid of my e-waste hassle-free!",
+            },
+            {
+              name: "Neha M.",
+              feedback: "Love how transparent the pricing is. Highly recommend!",
+            },
+            {
+              name: "Imran P.",
+              feedback: "Scheduled a pickup and got paid on the spot. Amazing!",
+            },
+          ].map((t, i) => (
+            <div key={i} className="bg-green-50 p-6 rounded-xl shadow hover:shadow-md">
+              <p className="text-gray-700 italic">“{t.feedback}”</p>
+              <h4 className="mt-4 font-bold text-green-800">{t.name}</h4>
+            </div>
+          ))}
+        </div>
+      </section>
+      {/* Call to Action */}
+      <section className="bg-emerald-600 text-white text-center py-6">
+      <h3 className="text-xl font-semibold">Join thousands of users making the planet greener!</h3>
+      <Link to="/register">
+        <button className="mt-4 bg-white text-emerald-700 font-bold px-6 py-2 rounded-full hover:bg-gray-100 transition">
+          Get Started
+        </button>
+      </Link>
+      </section>
       {/* Brand Info */}
       <section className="py-12 px-6 bg-white border-t border-gray-200">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 max-w-6xl mx-auto">

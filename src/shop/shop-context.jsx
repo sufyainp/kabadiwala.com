@@ -13,6 +13,7 @@ const getDefaultCart = () => {
 
 export const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
+  const[trackerId, setTrackerId] = useState(null);
 
   const getTotalCartAmount = () => {
     let totalAmount = 0;
@@ -39,6 +40,7 @@ export const ShopContextProvider = (props) => {
 
   const checkout = () => {
     setCartItems(getDefaultCart());
+    setTrackerId("123456");
   };
 
   const contextValue = {
@@ -48,6 +50,7 @@ export const ShopContextProvider = (props) => {
     removeFromCart,
     getTotalCartAmount,
     checkout,
+    trackerId,
   };
 
   return (

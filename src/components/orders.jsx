@@ -4,6 +4,8 @@ function Shipment() {
   const [trackingNumber, setTrackingNumber] = useState('');
   const [shipmentDetails, setShipmentDetails] = useState(null);
   const [error, setError] = useState('');
+  const { trackerId } = useContext(ShopContext); // Access trackerId from context
+
 
   const handleInputChange = (event) => {
     setTrackingNumber(event.target.value);
@@ -14,7 +16,7 @@ function Shipment() {
     const shipmentData = {
       trackingNumber: trackingNumber,
       status: 'Shipped',
-      estimatedDeliveryDate: 'March 30, 2024', // Example estimated delivery date
+      estimatedDeliveryDate: 'March 30, 2025', // Example estimated delivery date
       // Add more shipment details as needed
     };
 
